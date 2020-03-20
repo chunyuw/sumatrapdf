@@ -3881,6 +3881,7 @@ static void FrameOnChar(WindowInfo* win, WPARAM key, LPARAM info = 0) {
         case VK_RETURN:
             FrameOnKeydown(win, IsShiftPressed() ? VK_PRIOR : VK_NEXT, 0);
             break;
+        case 'w':
         case VK_BACK: {
             bool forward = IsShiftPressed();
             ctrl->Navigate(forward ? 1 : -1);
@@ -3953,11 +3954,11 @@ static void FrameOnChar(WindowInfo* win, WPARAM key, LPARAM info = 0) {
                 win->ChangePresentationMode(PM_BLACK_SCREEN);
             }
             break;
-        case 'w':
-            if (win->presentation) {
-                win->ChangePresentationMode(PM_WHITE_SCREEN);
-            }
-            break;
+        // case 'w':
+        //     if (win->presentation) {
+        //         win->ChangePresentationMode(PM_WHITE_SCREEN);
+        //     }
+        //     break;
         case 'i':
             // experimental "page info" tip: make figuring out current page and
             // total pages count a one-key action (unless they're already visible)
